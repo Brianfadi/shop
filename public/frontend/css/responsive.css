@@ -1,0 +1,470 @@
+/* =====================================
+   Responsive CSS — Ecommerce Laravel
+   Covers: Frontend store (all pages)
+   Breakpoints:
+     Tablet  : 768px – 991px
+     Mobile  : ≤ 767px
+     XS      : ≤ 480px
+========================================*/
+
+/* ============================================================
+   GLOBAL / SHARED
+   ============================================================ */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================================
+   TABLET  768px – 991px
+   ============================================================ */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    /* --- General --- */
+    .section { padding: 50px 0; }
+    .section-title { margin-bottom: 40px; padding: 0 40px; }
+    .section-title h2 { font-size: 24px; }
+    .breadcrumbs { padding: 20px 0; }
+
+    /* --- Topbar --- */
+    .topbar .topbar-inner { flex-direction: column; text-align: center; }
+    .topbar .topbar-left  { margin-bottom: 6px; }
+    .topbar .topbar-right { justify-content: center; }
+
+    /* --- Middle bar (logo + search + icons) --- */
+    .middle-inner .middle-inner-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .header-logo { flex: 0 0 auto; }
+    .header-search { flex: 1 1 100%; order: 3; }
+    .header-search .header-search-form { width: 100%; }
+    .header-search input { width: 100%; }
+    .header-icons { flex: 0 0 auto; }
+
+    /* --- Navbar --- */
+    .header-inner .main-navbar .main-menu > li > a { padding: 15px 12px; font-size: 13px; }
+    .nav-promo { display: none; }
+
+    /* --- Hero slider --- */
+    #Gslider .carousel-inner { height: 380px; }
+    #Gslider .carousel-inner .carousel-caption h1 { font-size: 32px; }
+    #Gslider .carousel-inner .carousel-caption p  { font-size: 15px; margin: 16px 0; }
+
+    /* --- Small banners --- */
+    .small-banner .single-banner { margin-bottom: 16px; }
+
+    /* --- Product grid --- */
+    .shop-sidebar { margin-bottom: 30px; }
+
+    /* --- Cart --- */
+    .shopping-cart .total-amount .left  { margin-bottom: 20px; }
+    .shopping-cart .total-amount .right { padding-left: 0; }
+
+    /* --- Checkout --- */
+    .shop.checkout .checkout-form h2 { font-size: 22px; }
+
+    /* --- Footer --- */
+    .footer .single-footer { padding: 20px 0; }
+    .footer .copyright .left  { float: none; text-align: center; }
+    .footer .copyright .right { float: none; text-align: center; margin-top: 8px; }
+
+    /* --- Newsletter --- */
+    .footer-newsletter-form { flex-wrap: wrap; gap: 10px; }
+    .footer-newsletter-form input  { flex: 1 1 100%; }
+    .footer-newsletter-form button { width: 100%; }
+
+    /* --- Blog --- */
+    .shop-blog .shop-single-blog { margin-bottom: 30px; }
+    .blog-single.grid .pagination { float: none; text-align: center; }
+
+    /* --- Contact --- */
+    .contact-us .form-main  { padding: 30px; }
+    .contact-us .single-head { padding: 30px; margin-top: 30px; }
+    #myMap { height: 300px; width: 100%; }
+
+    /* --- About --- */
+    .about-us .about-content { padding: 0; margin-bottom: 30px; }
+
+    /* --- Error page --- */
+    .error-page .error-inner h2 { font-size: 100px; }
+
+    /* --- Shop services --- */
+    .shop-services .single-service { padding: 12px 0 12px 65px; }
+    .shop-services.section { padding: 45px 0 0; }
+}
+
+
+/* ============================================================
+   MOBILE  ≤ 767px
+   ============================================================ */
+@media only screen and (max-width: 767px) {
+
+    /* --- General --- */
+    .section { padding: 40px 0; }
+    .section-title { margin-bottom: 28px; padding: 0 16px; }
+    .section-title h2 { font-size: 20px; margin-bottom: 14px; }
+    .section-title p  { font-size: 13px; }
+    .breadcrumbs { padding: 16px 0; }
+    .breadcrumbs h2 { font-size: 22px; }
+
+    /* ---- TOPBAR ---- */
+    .topbar { display: none; }   /* hide on mobile to save space */
+
+/* ---- HEADER MIDDLE BAR ---- */
+    .middle-inner { padding: 10px 0; }
+    .middle-inner .middle-inner-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+    }
+    .header-logo {
+        flex: 1 1 auto;
+    }
+    .header-logo img { max-height: 40px; }
+    .header-icons {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    /* Hide the search bar in middle bar on mobile — use navbar toggler area */
+    .header-search { display: none; }
+
+    /* ---- MOBILE SEARCH (shown below logo row) ---- */
+    .mobile-search-bar {
+        width: 100%;
+        padding: 8px 0 4px;
+    }
+    .mobile-search-bar form {
+        display: flex;
+        width: 100%;
+    }
+    .mobile-search-bar input {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 13px;
+    }
+    .mobile-search-bar button {
+        padding: 8px 14px;
+        background: #F7941D;
+        color: #fff;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+    /* ---- NAVBAR ---- */
+    .header-inner { display: none; }   /* desktop nav hidden; Bootstrap toggler handles it */
+
+    /* Mobile menu toggle button - ensure it's visible */
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+
+    /* Mobile nav collapse - ensure it displays when active */
+    .mobile-nav-collapse {
+        display: none;
+    }
+    .mobile-nav-collapse.show {
+        display: block;
+    }
+
+    /* Bootstrap collapse nav on mobile */
+    .navbar-collapse { background: #fff; padding: 10px 0; border-top: 1px solid #eee; }
+    .main-menu.navbar-nav { flex-direction: column; width: 100%; }
+    .main-menu.navbar-nav > li { display: block; border-bottom: 1px solid #f0f0f0; }
+    .main-menu.navbar-nav > li > a { padding: 12px 16px; display: block; font-size: 14px; }
+    .main-menu.navbar-nav .dropdown-menu { position: static; float: none; box-shadow: none; border: none; background: #f9f9f9; }
+    .nav-promo { display: none; }
+
+    /* ---- HERO SLIDER ---- */
+    #Gslider .carousel-inner { height: 220px; }
+    #Gslider .carousel-inner .carousel-caption { bottom: 50%; transform: translateY(50%); padding: 0 12px; }
+    #Gslider .carousel-inner .carousel-caption h1 { font-size: 20px; line-height: 1.2; }
+    #Gslider .carousel-inner .carousel-caption p  { font-size: 12px; margin: 8px 0 12px; display: none; }
+    #Gslider .carousel-inner .carousel-caption .btn { padding: 8px 18px; font-size: 12px; }
+
+    /* ---- SMALL BANNERS ---- */
+    .small-banner { padding: 12px 0; }
+    .small-banner .single-banner { margin-bottom: 12px; }
+    .small-banner .single-banner .content { padding: 12px 10px 10px 20px; }
+    .small-banner .single-banner h3 { font-size: 16px; }
+
+    /* ---- MEDIUM BANNERS ---- */
+    .midium-banner .single-banner { margin-bottom: 14px; }
+    .midium-banner .single-banner .content { padding: 20px; }
+    .midium-banner .single-banner h3 { font-size: 17px; line-height: 22px; }
+
+    /* ---- PRODUCT GRID ---- */
+    .shop-sidebar { margin-bottom: 24px; }
+    .single-product { margin-top: 24px; }
+    .product-area .nav-tabs .nav-item { margin-bottom: 8px; }
+
+    /* Filter buttons on home page */
+    .filter-tope-group { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .filter-tope-group .btn { padding: 6px 14px; font-size: 12px; }
+
+    /* ---- PRODUCT DETAIL ---- */
+    .shop.single { padding: 20px 0 30px; }
+    .shop.single .product-des { margin-top: 20px; }
+    .shop.single .product-des .short h4 { font-size: 20px; line-height: 1.3; }
+    .shop.single .product-des .price { font-size: 17px; margin-top: 10px; }
+    .shop.single .add-to-cart .btn { height: 42px; padding: 0 28px; margin-top: 6px; }
+    .shop.single .quantity .input-number { height: 42px; }
+    .shop.single .nav-tabs li a { padding: 8px 18px; }
+    .shop.single .rating-des { padding: 14px 16px 14px 80px; }
+    .shop.single .rating-author { margin-right: 0; }
+
+    /* ---- CART ---- */
+    .shopping-summery thead { display: none; }
+    .shopping-cart .table td {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+        padding: 10px 10px 10px 50%;
+        position: relative;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+        height: auto;
+    }
+    .shopping-cart .table td::before {
+        content: attr(data-title);
+        display: block;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 10px 14px;
+        width: 48%;
+        height: 100%;
+        background: #F7941D;
+        color: #fff;
+        box-sizing: border-box;
+    }
+    .shopping-cart .qty .button .btn { width: 34px; padding: 0; }
+    .shopping-cart .total-amount { margin-top: 24px; }
+    .shopping-cart .total-amount .left  { margin-bottom: 24px; }
+    .shopping-cart .total-amount .right { padding-left: 0; }
+    .shopping-cart .total-amount .left .coupon form .btn {
+        display: block;
+        width: 100%;
+        height: 46px;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    /* ---- CHECKOUT ---- */
+    .shop.checkout .checkout-form h2 { font-size: 20px; font-weight: 700; }
+    .shop.checkout .checkout-form p  { font-size: 13px; margin-bottom: 20px; }
+    .shop.checkout .single-widget.get-button .btn { height: auto; padding: 12px; font-size: 13px; }
+    .order-details { margin-top: 30px; }
+
+    /* ---- LOGIN / REGISTER ---- */
+    .shop.login { padding: 40px 0; }
+    .shop.login .login-form h2 { font-size: 24px; margin-bottom: 8px; padding-bottom: 12px; }
+    .shop.login .login-form p  { font-size: 13px; margin-bottom: 24px; }
+    .shop.login .form .btn { width: 100%; text-align: center; margin-bottom: 10px; }
+
+    /* ---- ORDER TRACK ---- */
+    .tracking_box_area .tracking_form .col-md-8 { flex: 0 0 100%; max-width: 100%; }
+    .tracking_box_area .tracking_form .form-control { width: 100%; }
+    .tracking_box_area .submit_btn { width: 100%; }
+
+    /* ---- WISHLIST ---- */
+    .wishlist-table thead { display: none; }
+    .wishlist-table td {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* ---- BLOG ---- */
+    .shop-blog .shop-single-blog { margin-bottom: 24px; }
+    .shop-blog .shop-single-blog .content { padding: 20px; }
+    .blog-single .blog-title { font-size: 20px; margin: 18px 0 10px; }
+    .blog-single blockquote { padding: 16px 16px 16px 50px; }
+    .blog-single .comments .single-comment.left { margin-left: 0; }
+    .blog-single .reply form { padding: 0; border: none; }
+    .blog-single .reply .form-group input    { height: 42px; }
+    .blog-single .reply .form-group textarea { height: 110px; }
+    .blog-single .reply .button .btn { width: 100%; height: 44px; border: none; padding: 0 20px; }
+    .blog-single.grid .pagination { float: none; text-align: center; margin-top: 12px; }
+    .main-sidebar { padding: 20px; }
+
+    /* ---- CONTACT ---- */
+    .contact-us .form-main  { padding: 0; border: none; box-shadow: none; }
+    .contact-us .single-head { padding: 0; border: none; box-shadow: none; margin-top: 30px; }
+    .contact-us .single-info { text-align: center; }
+    .contact-us .single-info i { display: inline-block; }
+    .contact-us .title h3 { font-size: 20px; }
+    .contact-us .form .form-group input    { height: 42px; }
+    .contact-us .form .form-group textarea { height: 140px; }
+    .contact-us .form .button .btn { width: 100%; height: auto; padding: 14px; }
+    #myMap { height: 260px; width: 100%; }
+
+    /* ---- ABOUT ---- */
+    .about-us .about-content { padding: 0; margin-bottom: 24px; }
+    .about-us .about-content h3 { font-size: 22px; }
+    .about-us .about-content .button .btn { padding: 10px 20px; font-size: 13px; margin-right: 8px; }
+
+    /* ---- SHOP SERVICES ---- */
+    .shop-services { padding: 40px 0; }
+    .shop-services .single-service {
+        padding: 40px 0 16px;
+        text-align: center;
+    }
+    .shop-services .single-service i {
+        height: 40px; width: 40px;
+        line-height: 40px; font-size: 22px;
+        top: 0; left: 50%; margin-left: -20px;
+    }
+
+    /* ---- NEWSLETTER ---- */
+    .shop-newsletter .newsletter-inner input {
+        width: 100%;
+        height: 42px;
+        padding: 0 14px;
+        border-radius: 30px;
+        margin-bottom: 10px;
+        display: block;
+        text-align: center;
+    }
+    .shop-newsletter .newsletter-inner .btn {
+        height: 42px;
+        width: 100%;
+        border-radius: 30px;
+        display: block;
+        left: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer .footer-top { padding: 12px 0; }
+    .footer .single-footer { padding: 14px 0; }
+    .footer .single-footer h4 { margin-bottom: 10px; }
+    .footer .links ul li { margin-bottom: 5px; }
+    .footer .copyright .left  { float: none; text-align: center; }
+    .footer .copyright .right { float: none; text-align: center; margin-top: 8px; }
+
+    /* Footer newsletter strip */
+    .footer-newsletter-strip .newsletter-text { margin-bottom: 14px; }
+    .footer-newsletter-form { flex-direction: column; gap: 8px; }
+    .footer-newsletter-form input  { width: 100%; border-radius: 4px; }
+    .footer-newsletter-form button { width: 100%; border-radius: 4px; }
+
+    /* ---- QUICK VIEW MODAL ---- */
+    .modal-dialog .quickview-slider-active { display: none; }
+    .quickview-content { padding: 24px; }
+    .quickview-content h2 { font-size: 20px; }
+    .quickview-content h3 { font-size: 16px; margin: 8px 0; }
+    .quickview-content .add-to-cart .btn { height: 42px; padding: 0 22px; font-size: 12px; margin-bottom: 8px; }
+    .quickview-content .quantity .input-number { height: 40px; }
+    .quickview-content .nice-select { height: 40px; }
+
+    /* ---- COUNTDOWN ---- */
+    .cown-down { height: auto; }
+    .cown-down .content { padding: 28px 16px; }
+    .cown-down .content .title { font-size: 20px; }
+    .cown-down .content .price { font-size: 26px; margin-top: 18px; }
+    .cown-down .padding-left, .cown-down .padding-right { padding: 0; }
+
+    /* ---- PAGINATION ---- */
+    .pagination .pagination-list li a { padding: 4px 10px; }
+    .shop-list .pagination { float: none; text-align: center; }
+
+    /* ---- ERROR PAGE ---- */
+    .error-page .error-inner h2 { font-size: 60px; }
+    .error-page .error-inner h5 { font-size: 15px; }
+    .error-page .error-inner p  { font-size: 13px; padding: 0 16px; }
+    .error-page .button .btn    { padding: 8px 20px; }
+
+    /* ---- HOME LIST ---- */
+    .shop-home-list { padding-top: 0; }
+    .shop-home-list .shop-section-title { margin-top: 16px; }
+    .shop-home-list .single-list .content { padding: 16px; text-align: center; }
+}
+
+
+/* ============================================================
+   EXTRA SMALL  ≤ 480px
+   ============================================================ */
+@media only screen and (max-width: 480px) {
+
+    /* --- Hero --- */
+    #Gslider .carousel-inner { height: 180px; }
+    #Gslider .carousel-inner .carousel-caption h1 { font-size: 16px; }
+    #Gslider .carousel-inner .carousel-caption .btn { padding: 6px 14px; font-size: 11px; }
+
+    /* --- Header icons --- */
+    .header-icons .icon-badge { font-size: 9px; height: 16px; width: 16px; line-height: 16px; }
+
+    /* --- Section title --- */
+    .section-title h2 { font-size: 18px; }
+
+    /* --- Product cards --- */
+    .single-product .product-content h3 a { font-size: 13px; }
+
+    /* --- Cart table --- */
+    .shopping-cart .table td { padding: 8px 8px 8px 48%; }
+    .shopping-cart .table td::before { padding: 8px 10px; }
+
+    /* --- Checkout --- */
+    .shop.checkout .checkout-form h2 { font-size: 18px; }
+
+    /* --- Newsletter --- */
+    .footer-newsletter-form input  { font-size: 13px; }
+    .footer-newsletter-form button { font-size: 13px; }
+
+    /* --- Footer newsletter strip --- */
+    .footer-newsletter-strip { padding: 20px 0; }
+
+    /* --- Blog --- */
+    .blog-single .blog-title { font-size: 18px; }
+    .blog-single blockquote  { padding: 14px 14px 14px 44px; }
+    .blog-single blockquote i { font-size: 22px; }
+
+    /* --- Contact modal --- */
+    .modal-dialog .modal-content { width: 90%; }
+
+    /* --- Shop filter --- */
+    .shop-top { flex-direction: column; gap: 10px; }
+    .shop-shorter { flex-wrap: wrap; gap: 8px; }
+    .shop .view-mode { float: none; display: flex; gap: 6px; margin-top: 6px; }
+    .shop .view-mode li a { width: 36px; height: 32px; line-height: 32px; display: inline-block; }
+
+    /* --- Login / Register panels --- */
+    .login-wrapper, .reg-wrapper { margin: 12px 10px; border-radius: 10px; }
+    .login-right-panel, .login-left-panel { padding: 24px 16px; }
+    .reg-form-panel, .reg-brand-panel { padding: 24px 16px; }
+    .login-brand-title, .reg-brand-title { font-size: 20px; }
+    .lf-submit-btn, .rf-submit-btn { font-size: 14px; padding: 12px; }
+
+    /* --- Order track --- */
+    .tracking_box_area .tracking_form { flex-direction: column; }
+    .tracking_box_area .submit_btn { padding: 10px 20px; }
+
+    /* --- Quick view --- */
+    .quickview-content { padding: 18px; }
+    .quickview-content h2 { font-size: 17px; }
+    .quickview-content .quickview-peragraph p { font-size: 13px; line-height: 1.6; }
+
+    /* --- Countdown --- */
+    .cown-down .content .title { font-size: 18px; }
+    .cown-down .content .price { font-size: 22px; }
+
+    /* --- Error page --- */
+    .error-page .error-inner h2 { font-size: 48px; }
+}
+
+
+/* ============================================================
+   UTILITY — prevent horizontal overflow on all screens
+   ============================================================ */
+body { overflow-x: hidden; }
+.container-fluid { padding-left: 15px; padding-right: 15px; }
+table { width: 100%; }
