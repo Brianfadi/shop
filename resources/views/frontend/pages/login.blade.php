@@ -126,7 +126,7 @@
                             <input type="checkbox" name="remember"> Remember me
                         </label>
                         @if(Route::has('password.request'))
-                            <a href="{{ route('password.reset') }}" class="lf-forgot">Forgot password?</a>
+                            <a href="{{ route('password.request') }}" class="lf-forgot">Forgot password?</a>
                         @endif
                     </div>
 
