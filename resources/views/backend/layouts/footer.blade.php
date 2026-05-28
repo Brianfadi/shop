@@ -63,3 +63,46 @@
       $('.alert').slideUp();
     },4000);
   </script>
+
+  @if(config('services.cloudinary.cloud_name'))
+  <!-- Cloudinary Upload Widget -->
+  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <script>
+    // Replace LFM buttons with Cloudinary upload widget
+    document.addEventListener('DOMContentLoaded', function () {
+      var cloudName = '{{ config("services.cloudinary.cloud_name") }}';
+      var uploadPreset = '{{ config("services.cloudinary.upload_preset") }}';
+
+      document.querySelectorAll('[data-input]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var inputId  = btn.getAttribute('data-input');
+          var previewId = btn.getAttribute('data-preview');
+
+          var widget = cloudinary.createUploadWidget({
+            cloudName: cloudName,
+            uploadPreset: uploadPreset,
+            sources: ['local', 'url', 'camera'],
+            multiple: false,
+            resourceType: 'image',
+          }, function (error, result) {
+            if (!error && result && result.event === 'success') {
+              var url = result.info.secure_url;
+              // Set the input value
+              var input = document.getElementById(inputId);
+              if (input) input.value = url;
+              // Show preview
+              if (previewId) {
+                var holder = document.getElementById(previewId);
+                if (holder) {
+                  holder.innerHTML = '<img src="' + url + '" style="max-height:100px;margin-top:10px;">';
+                }
+              }
+            }
+          });
+          widget.open();
+        });
+      });
+    });
+  </script>
+  @endif
