@@ -21,8 +21,8 @@ Route::get('user/logout','FrontendController@logout')->name('user.logout');
 
 Route::get('user/register','FrontendController@register')->name('register.form');
 Route::post('user/register','FrontendController@registerSubmit')->name('register.submit');
-// Reset password
-Route::post('password-reset', 'FrontendController@showResetForm')->name('password.reset'); 
+// Reset password (custom frontend form)
+Route::get('password-reset', 'FrontendController@showResetForm')->name('frontend.password.reset');
 // Socialite 
 Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
 Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
@@ -78,7 +78,7 @@ Route::post('/subscribe','FrontendController@subscribe')->name('subscribe');
 
 // Product Review
 Route::resource('/review','ProductReviewController');
-Route::post('product/{slug}/review','ProductReviewController@store')->name('review.store');
+Route::post('product/{slug}/review','ProductReviewController@store')->name('product.review.store');
 
 // Post Comment 
 Route::post('post/{slug}/comment','PostCommentController@store')->name('post-comment.store');
@@ -182,10 +182,8 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     
     // Password Change
     Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
-    Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');
+    Route::post('change-password', 'HomeController@changPasswordStore')->name('user.change.password');
 
 });
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
+
